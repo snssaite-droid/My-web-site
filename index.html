@@ -15,6 +15,8 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding: 20px 0;
+      box-sizing: border-box;
     }
     .container {
       background-color: #ffffff;
@@ -22,7 +24,7 @@
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 500px;
+      max-width: 600px;
       width: 90%;
     }
     h1 {
@@ -30,9 +32,49 @@
       margin-bottom: 20px;
       line-height: 1.4;
     }
-    p {
+    .intro-text {
+      font-size: 0.95em;
       line-height: 1.8;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      text-align: left;
+      border-left: 5px solid #2ecc71;
+    }
+    .videos-section {
       margin-bottom: 30px;
+      text-align: left;
+    }
+    .videos-section h2 {
+      font-size: 1.1em;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 15px;
+    }
+    .video-card {
+      background: #fafafa;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.5%; /* 16:9比率 */
+      height: 0;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
     .youtube-btn {
       display: inline-block;
@@ -52,16 +94,33 @@
   </style>
 </head>
 <body>
-
   <div class="container">
     <h1>CHAN_YU-KIのYouTubeチャンネルの<br>公式ホームページです</h1>
-    <p>
-      遊びに来てくれてありがとうございます！<br>
-      チャンネル登録・高評価よろしくお願いします♪
-    </p>
+
+    <div class="intro-text">
+      2026年4月1日にYouTubeチャンネル設営。<br>
+      アウトドア動画、VLOG、釣り、キャンプ、ビートボックス、筋トレ、旅行など幅広いジャンルの動画を更新していきたいと思います！ぜひチャンネル登録をし最新の動画もご覧ください♪
+    </div>
+
+    <div class="videos-section">
+      <h2>ピックアップ動画</h2>
+      <div class="video-grid">
+        <!-- 動画1つ目 (srcのVIDEO_IDの箇所にお好みのYouTube動画IDを入れてください) -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://youtube.com" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!-- 動画2つ目 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://youtube.com" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <a href="https://www.youtube.com/@CHAN_YU-KI" class="youtube-btn" target="_blank" rel="noopener noreferrer">YouTubeチャンネルを見る</a>
   </div>
-
 </body>
 </html>
