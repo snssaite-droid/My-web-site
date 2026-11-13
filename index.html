@@ -9,7 +9,12 @@
       margin: 0;
       padding: 0;
       font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      background-color: #ffc0cb; /* 画面の背景色（ピンク） */
+      /* 自然の風景画像（森林）を背景に設定 */
+      background-image: url('https://unsplash.com');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #2e5a44; /* 画像読み込み前のフォールバック色 */
       color: #000000; /* 文字色（黒） */
       display: flex;
       justify-content: center;
@@ -19,10 +24,12 @@
       box-sizing: border-box;
     }
     .container {
-      background-color: #ffffff;
+      /* 背景が透けて見えるように少し透明感のある白に設定 */
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(5px);
       padding: 40px 30px;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       text-align: center;
       max-width: 600px;
       width: 90%;
@@ -37,13 +44,13 @@
     .intro-text {
       font-size: 0.95em;
       line-height: 1.8;
-      background-color: #fff0f5; /* 紹介文ボックスの背景（ごく薄いピンク） */
+      background-color: #f0f7f4; /* 自然に馴染む薄いグリーン系背景 */
       color: #000000;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 25px;
       text-align: left;
-      border-left: 5px solid #ff69b4; /* アクセントライン（ピンク） */
+      border-left: 5px solid #2e8b57; /* アクセントライン（フォレストグリーン） */
     }
     .videos-section {
       margin-bottom: 30px;
