@@ -3,27 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サイトのタイトル</title>
-  <!-- style.css を読み込む記述 -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://googletagmanager.com"></script>
-
-
-
-
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BQ67ZS4B96');
-  </script>
+  <title>CHAN_YUKI 公式ホームページ</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      background-color: #ffe6f0; /* 淡いピンクの背景 */
+      color: #4a2c38; /* 読みやすい濃いピンクブラウンの文字 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 600px;
+      padding: 40px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+      text-align: center;
+      border: 3px solid #ff99cc;
+    }
+    h1 {
+      color: #ff3385; /* 鮮やかなピンクの見出し */
+      font-size: 1.6em;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    p {
+      font-size: 1em;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .youtube-btn {
+      display: inline-block;
+      background-color: #ff4d94;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      box-shadow: 0 4px 10px rgba(255, 77, 148, 0.3);
+      transition: background-color 0.3s;
+    }
+    .youtube-btn:hover {
+      background-color: #e6005c;
+    }
+  </style>
 </head>
 <body>
-  <h1>ホームページへようこそ！</h1>
-  <!-- サイトの中身 -->
+
+  <div class="container">
+    <h1>CHAN_YUKIのYouTubeチャンネルの<br>公式ホームページです</h1>
+    <p>
+      遊びに来てくれてありがとうございます！<br>
+      チャンネル登録・高評価よろしくお願いします♪
+    </p>
+    <!-- ↓「#」の部分を自分のYouTubeチャンネルのURLに書き換えてください -->
+    <a href="#" class="youtube-btn" target="_blank">YouTubeチャンネルを見る</a>
+  </div>
+
 </body>
 </html>
