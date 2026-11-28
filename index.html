@@ -39,9 +39,14 @@
   <style>
     body {
       margin: 0;
-      padding: 20px 0;
+      padding: 30px 0;
       font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      background: linear-gradient(135deg, #1e3c2f 0%, #2e5a44 50%, #3b7a57 100%);
+      /* ▼ HTMLと同じフォルダに「youtube-banner.jpg」という名前でバナー画像を保存すると背景に表示されます ▼ */
+      background-image: linear-gradient(rgba(15, 30, 22, 0.72), rgba(15, 30, 22, 0.85)), url('youtube-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #1e3c2f;
       color: #000000;
       display: flex;
       justify-content: center;
@@ -51,30 +56,101 @@
     }
 
     .container {
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 40px 28px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.96);
+      padding: 40px 32px;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
       text-align: center;
-      max-width: 600px;
-      width: 90%;
+      max-width: 820px;
+      width: 92%;
       color: #000000;
+      backdrop-filter: blur(6px);
     }
 
     h1 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
+      font-size: 1.7em;
+      margin-top: 0;
+      margin-bottom: 24px;
       line-height: 1.4;
       color: #000000;
-      text-wrap: balance; /* 見出しの折り返しバランスを均一に整える */
+      text-wrap: balance;
     }
 
     .sub-name {
-      font-size: 0.75em;
+      font-size: 0.7em;
       color: #2e5a44;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    .video-section {
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 1.15em;
+      font-weight: bold;
+      color: #1e3c2f;
+      margin: 0 0 12px 0;
+      padding-left: 12px;
+      border-left: 5px solid #ff0033;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-new {
+      background-color: #ff0033;
+      color: #ffffff;
+      font-size: 0.7em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      background-color: #000000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .video-card {
+      background-color: #f8fbf9;
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid #e0ede6;
+    }
+
+    .video-caption {
+      font-size: 0.88em;
+      font-weight: bold;
+      color: #1e3c2f;
+      margin: 10px 4px 2px;
+      line-height: 1.4;
+      text-align: center;
     }
 
     .intro-text {
@@ -84,10 +160,10 @@
       color: #000000;
       padding: 22px 20px;
       border-radius: 12px;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
       text-align: left;
       border-left: 5px solid #2e8b57;
-      word-break: auto-phrase; /* 日本語の文節で自然に改行させる */
+      word-break: auto-phrase;
       overflow-wrap: break-word;
     }
 
@@ -99,7 +175,6 @@
       margin-bottom: 0;
     }
 
-    /* 単語やフレーズの途中で不自然に改行されるのを防ぐクラス */
     .keep-phrase {
       display: inline-block;
     }
@@ -162,22 +237,23 @@
     }
 
     footer {
-      margin-top: 25px;
+      margin-top: 28px;
       font-size: 0.75em;
       color: #555555;
     }
 
-    /* スマホ画面など狭い幅でのボタン・文字の調整 */
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .container {
-        padding: 30px 20px;
+        padding: 28px 18px;
       }
-      .intro-text {
-        font-size: 0.9em;
-        padding: 18px 16px;
+      h1 {
+        font-size: 1.4em;
+      }
+      .recommend-grid {
+        grid-template-columns: 1fr;
       }
       .links-grid {
-        grid-template-columns: 1fr; /* スマホではボタンを縦並びにして改行崩れを防止 */
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -190,9 +266,40 @@
       <span class="keep-phrase">チャンユーキの</span><span class="keep-phrase">公式ホームページ</span>
     </h1>
 
+    <!-- ① 最新の動画（チャンネルID連動で最新アップロードが自動表示） -->
+    <section class="video-section">
+      <h2 class="section-title">
+        <span class="badge-new">NEW</span> 最新の動画
+      </h2>
+      <div class="video-wrapper">
+        <iframe src="https://youtube.com" title="チャンユーキ 最新の動画" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- ② おすすめの動画（2本目・3本目の最新動画を自動ピックアップ表示） -->
+    <section class="video-section">
+      <h2 class="section-title">ピックアップ動画</h2>
+      <div class="recommend-grid">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://youtube.com&index=1" title="チャンユーキ ピックアップ動画1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">ピックアップ動画 ①</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://youtube.com&index=2" title="チャンユーキ ピックアップ動画2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">ピックアップ動画 ②</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- チャンネル紹介文 -->
     <div class="intro-text">
       <p>
-        <span class="keep-phrase">2026年4月1日に</span>YouTubeチャンネル<span class="keep-phrase">「CHAN_YU-KI」を開設。</span>
+        <span class="keep-phrase">2026年4月1日に</span>YouTubeチャンネル<span class="keep-phrase">「CHAN_YU-KI」を設営。</span>
       </p>
       <p>
         <strong>チャンユーキ</strong>（CHAN_YUKI）が、<span class="keep-phrase">アウトドア動画、</span>VLOG、釣り、キャンプ、<span class="keep-phrase">ビートボックス、</span>筋トレ、旅行など<span class="keep-phrase">幅広いジャンルの</span><span class="keep-phrase">動画を配信しています！</span>
@@ -214,8 +321,8 @@
     </div>
 
     <div class="links-grid">
-      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="sub-btn">▶ 最新の動画を見る</a>
-      <a href="https://www.youtube.com/@CHAN_YU-KI/shorts" target="_blank" rel="noopener noreferrer" class="sub-btn">▶ ショート動画を見る</a>
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="sub-btn">▶ 動画一覧を見る</a>
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="sub-btn">▶ ショート動画を見る</a>
     </div>
 
     <a href="https://www.youtube.com/@CHAN_YU-KI" target="_blank" rel="noopener noreferrer" class="youtube-btn">YouTubeチャンネルを登録する</a>
