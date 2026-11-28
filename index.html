@@ -16,24 +16,24 @@
 
   <!-- Google検索にチャンネル情報と公式サイト情報を正しく伝える設定（構造化データ） -->
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "チャンユーキ",
-      "alternateName": ["CHAN_YUKI", "CHAN_YU-KI"],
-      "description": "アウトドア、VLOG、釣り、キャンプ、ビートボックス、筋トレ、旅行などを配信するYouTuber",
-      "sameAs": [
-        "https://www.youtube.com/@CHAN_YU-KI"
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "チャンユーキ 公式ホームページ",
-      "alternateName": ["CHAN_YUKI 公式ホームページ", "CHAN_YU-KI 公式ホームページ"]
-    }
-  ]
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "チャンユーキ",
+        "alternateName": ["CHAN_YUKI", "CHAN_YU-KI"],
+        "description": "アウトドア、VLOG、釣り、キャンプ、ビートボックス、筋トレ、旅行などを配信するYouTuber",
+        "sameAs": [
+          "https://www.youtube.com/@CHAN_YU-KI"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "チャンユーキ 公式ホームページ",
+        "alternateName": ["CHAN_YUKI 公式ホームページ", "CHAN_YU-KI 公式ホームページ"]
+      }
+    ]
   </script>
 
   <style>
@@ -49,6 +49,7 @@
       min-height: 100vh;
       box-sizing: border-box;
     }
+
     .container {
       background-color: rgba(255, 255, 255, 0.95);
       padding: 40px 28px;
@@ -59,12 +60,15 @@
       width: 90%;
       color: #000000;
     }
+
     h1 {
       font-size: 1.5em;
       margin-bottom: 20px;
       line-height: 1.4;
       color: #000000;
+      text-wrap: balance; /* 見出しの折り返しバランスを均一に整える */
     }
+
     .sub-name {
       font-size: 0.75em;
       color: #2e5a44;
@@ -72,17 +76,34 @@
       margin-bottom: 5px;
       font-weight: bold;
     }
+
     .intro-text {
       font-size: 0.95em;
-      line-height: 1.8;
+      line-height: 1.85;
       background-color: #f0f7f4;
       color: #000000;
-      padding: 20px;
+      padding: 22px 20px;
       border-radius: 12px;
       margin-bottom: 25px;
       text-align: left;
       border-left: 5px solid #2e8b57;
+      word-break: auto-phrase; /* 日本語の文節で自然に改行させる */
+      overflow-wrap: break-word;
     }
+
+    .intro-text p {
+      margin: 0 0 12px 0;
+    }
+
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 単語やフレーズの途中で不自然に改行されるのを防ぐクラス */
+    .keep-phrase {
+      display: inline-block;
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -90,6 +111,7 @@
       gap: 8px;
       margin-bottom: 28px;
     }
+
     .tag {
       background-color: #e4f1eb;
       color: #1e3c2f;
@@ -98,12 +120,14 @@
       padding: 6px 14px;
       border-radius: 20px;
     }
+
     .links-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-bottom: 20px;
     }
+
     .sub-btn {
       display: block;
       background-color: #2e5a44;
@@ -115,9 +139,11 @@
       font-size: 0.95em;
       transition: background-color 0.3s;
     }
+
     .sub-btn:hover {
       background-color: #1e3c2f;
     }
+
     .youtube-btn {
       display: block;
       background-color: #ff0033;
@@ -130,26 +156,50 @@
       box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3);
       transition: background-color 0.3s;
     }
+
     .youtube-btn:hover {
       background-color: #cc0029;
     }
+
     footer {
       margin-top: 25px;
       font-size: 0.75em;
       color: #555555;
     }
+
+    /* スマホ画面など狭い幅でのボタン・文字の調整 */
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+      .intro-text {
+        font-size: 0.9em;
+        padding: 18px 16px;
+      }
+      .links-grid {
+        grid-template-columns: 1fr; /* スマホではボタンを縦並びにして改行崩れを防止 */
+      }
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
     <h1>
       <span class="sub-name">CHAN_YUKI / CHAN_YU-KI</span>
-      チャンユーキの公式ホームページ
+      <span class="keep-phrase">チャンユーキの</span><span class="keep-phrase">公式ホームページ</span>
     </h1>
 
     <div class="intro-text">
-      2026年4月1日にYouTubeチャンネル「CHAN_YU-KI」を開設。<br>
-      <strong>チャンユーキ</strong>（CHAN_YUKI）が、アウトドア動画、VLOG、釣り、キャンプ、ビートボックス、筋トレ、旅行など幅広いジャンルの動画を配信しています！ぜひチャンネル登録をして最新の動画もご覧ください♪
+      <p>
+        <span class="keep-phrase">2026年4月1日に</span>YouTubeチャンネル<span class="keep-phrase">「CHAN_YU-KI」を開設。</span>
+      </p>
+      <p>
+        <strong>チャンユーキ</strong>（CHAN_YUKI）が、<span class="keep-phrase">アウトドア動画、</span>VLOG、釣り、キャンプ、<span class="keep-phrase">ビートボックス、</span>筋トレ、旅行など<span class="keep-phrase">幅広いジャンルの</span><span class="keep-phrase">動画を配信しています！</span>
+      </p>
+      <p>
+        <span class="keep-phrase">ぜひチャンネル登録をして</span><span class="keep-phrase">最新の動画もご覧ください♪</span>
+      </p>
     </div>
 
     <div class="tags">
@@ -174,5 +224,6 @@
       &copy; 2026 チャンユーキ (CHAN_YU-KI)
     </footer>
   </div>
+
 </body>
 </html>
